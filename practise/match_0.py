@@ -1,4 +1,9 @@
-def pt(point):
+class point:
+    def __init__(self, x ,y):
+        self.x = x
+        self.y = y
+
+def where_is(point):
     match point:
         case (0,0):
             print("Origin")
@@ -11,7 +16,8 @@ def pt(point):
         case _:
             raise ValueError("Not a point")
         
-x, y = map(int, input("Enter point(x, y):").split())
-point0 = (x, y)
-print(point0)
-pt(point0)
+#x, y = map(int, input("Enter point(x, y):").split())
+#point0 = (x, y)
+#print(point0)
+#where_is(point0)
+print(point)
