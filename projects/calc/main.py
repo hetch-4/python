@@ -20,15 +20,16 @@ print(operation)
 x = input("Choose your operation")
 print(a,x,b,'=')
 
-    if x =="+":
-        add(a,b)
-    elif x =="-":
-        subtract(a,b)
-    elif x =="/":
-        divide(a,b)
-    elif x == "*":
-        mult(a,b)
-    else :
-        print(error)
+
+if x =="+":
+    add(a,b)
+elif x =="-":
+    subtract(a,b)
+elif x =="/":
+    divide(a,b)
+elif x == "*":
+    mult(a,b)
+else :
+    print('Error, try Again')
 
 print("^-^")    
