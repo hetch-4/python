@@ -1,36 +1,24 @@
-#control flow 
+#download yt video in mp3 format
+from pytube import YouTube
+import os
 
-#if statement
-x = int(input("Please enter an integer:"))
+#url input from user
+yt = YouTube(str(input("Enter url of video you want to download:")))
 
-if x < 0:
-    x = 0
-    print ('Negative changed to zero')
-elif x == 0:
-    print('zero')
-elif x == 1:
-    print('single')
-else:
-    print('more')
+# extract audio only
+video = yt.streams.filter(only_audio=True).first()
 
-#for statement
-words = ['car','window','defenestrate']
+#check for destination to save file 
+print("Enter Destination to save file (leave blank for urrent directory)")
+destination = str(input(">> ")) or '.'
 
-for x in words:
-    print( x , len(x) )
+#download the file 
+out_file = video.download(output_path=destination)
 
-    #modify  a collection while while iterating through it to create a new sample
-users = {'Hans':'active','Eleonore':"inactive",'XiaXo':'active'}
+#save the file
+base, ext = os.path.splittext(out_file)
+new_file = base + '.mp3'
+os.rename(out_file, new_file)  
 
-for user, status in users.copy().items():
-    if status == 'inactive':
-        del users[user]
-
-print(users)
-active_users = {}
-for user, status in users.items():
-    if status == 'active':
-        active_users[user] = status
-
-print(users)
-print(active_users)
+#result of success
+print(yt.title + " has been succesfully downloaded in .mp3 format.")
